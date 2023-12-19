@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <meta name="description" content="Edit your artist profile on ArtHub to showcase your latest work, update your bio, and connect with other creative minds.">
+  <meta name="keywords" content="edit profile, artist, art, social media, creative community, update bio, showcase artwork">
+  <meta property="og:title" content="Edit Your Artist Profile on ArtHub">
+  <meta property="og:description" content="Customize your artist profile on ArtHub, a social media platform for artists. Showcase your latest work, update your bio, and connect with a vibrant creative community.">
+  <meta property="og:image" content="URL to an image representing the edit profile page">
+  <meta property="og:url" content="URL of your edit profile page">
+  <title>Edit Your Artist Profile - ArtHub</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-ddemo"></div>
+      <div class="form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+          <div class="logo">
+            <h3 style="padding: 20px; font-size: 20px;">Edit Profile</h3>
+          </div>
+          {{form.image}} <br>
+		  {{form.first_name}} <br>
+		  {{form.last_name}} <br>
+		  {{form.bio}} <br>
+		  {{form.location}} <br>
+		  {{form.url}} <br>
+          <button class="form-btn" type="submit">Update Profile</button>
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          
+        </form>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <nav class="footer-nav">
+          <ul>
+            <li>
+              <a href="/about">About us</a>
+            </li>
+            
+          </ul>
+        </nav>
+        <div class="copyright-notice">
+          &copy 2024 ArtHub
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
+{% endblock content %}

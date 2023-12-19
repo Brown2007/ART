@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <meta name="description" content="Share your latest artwork on ArtHub's New Post page. Connect with other artists, get feedback, and be part of a vibrant creative community.">
+  <meta name="keywords" content="new post, artwork, artist, social media, creative community, share art, get feedback">
+  <meta property="og:title" content="Share Your Artwork - ArtHub New Post">
+  <meta property="og:description" content="Post your latest artwork on ArtHub's New Post page. Connect with fellow artists, receive feedback, and be part of a dynamic creative community.">
+  <meta property="og:image" content="URL to an image representing the new post page">
+  <meta property="og:url" content="URL of your new post page">
+  <title>Share Your Artwork - ArtHub New Post</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-ddemo"></div>
+      <div class="form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+          <div class="logo">
+            <h3 style="padding: 20px; font-size: 20px;">Create New Post</h3>
+          </div>
+		  <!-- {{form|crispy}} -->
+          {{form.picture}} <br>
+          {{form.caption}} <br>
+          {{form.tags}} <br>
+          <button class="form-btn" type="submit">Post</button>
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          
+        </form>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <nav class="footer-nav">
+          
+        </nav>
+        <div class="copyright-notice">
+          &copy 2024 ArtHub
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
+{% endblock content %}

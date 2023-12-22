@@ -22,13 +22,26 @@
 
   <div id="wrapper">
     <div class="container">
-      <div class="phone-app-demo"></div>
+      <div class="phone-app-demo">
+        <video autoplay muted loop playsinline>
+          <source src="{% static 'assets2/images/home.mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div class="form-data">
-        <form action="" method="POST">
+        <form action="{% url 'sign-up' %}" method="POST">
           {% csrf_token %}
           <div class="logo">
-            <img src="{% static 'assets2/images/arthub.jpg' %}" alt="logo">
+            <img src="{% static 'assets2/images/brand.jpg' %}" alt="logo">>
           </div>
+          <div class="btn btn-primary" >
+            <p>Your password should meet the following requirements:</p>
+            <ul>
+                <li>At least 8 characters long</li>
+                <li>Include either uppercase or lowercase letters</li>
+                <li>Contain at least one number</li>
+            </ul>
+        </div>
           <!-- <input type="text" placeholder="Phone number, username, or email"> -->
           <!-- <input type="password" placeholder="Password"> -->
           {{form.username}}

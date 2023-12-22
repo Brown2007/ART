@@ -37,7 +37,7 @@ body {
 .container {
   width: 100%;
   max-width: 93.5rem;
-   margin: 1rem auto 0; 
+  margin: 1rem auto 0; 
 }
 
 #wrapper > .container {
@@ -47,7 +47,7 @@ body {
 
 .phone-app-demo {
   height: 61.8rem;
-  background: url("./images/logo.jpg") center no-repeat;
+  background: url("./images/home.mp4") center no-repeat;
   flex: 1;
 }
 
@@ -219,11 +219,10 @@ footer .container {
 
   .form-data {
     background-color: #fff;
-
     margin: 0 auto;
   }
-  
-  .wrapper > .container {
+
+  #wrapper > .container {
     padding: 0;
   }
 
@@ -242,7 +241,7 @@ footer .container {
 }
 
 @media (max-width: 450px) {
-  .wrapper {
+  #wrapper {
     padding-top: 0;
   }
 

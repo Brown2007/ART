@@ -103,26 +103,22 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             new_user = form.save()
-            # Profile.get_or_create(user=request.user)
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Hurray your account was created!!')
-
-            # Automatically Log In The User
-            new_user = authenticate(username=form.cleaned_data['username'],
-                                    password=form.cleaned_data['password1'],)
-            login(request, new_user)
-            # return redirect('editprofile')
-            return redirect('index')
+            messages.success(request, f'Hurray, your account was created!')
             
+            # Automatically Log In The User
+            new_user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+            login(request, new_user)
 
-
+            # Redirect to the user's profile or any other desired page
+            return redirect('profile', username=new_user.username)
     elif request.user.is_authenticated:
+        # Redirect the authenticated user to the home page or any other desired page
         return redirect('index')
     else:
         form = UserRegisterForm()
+
     context = {
         'form': form,
     }
     return render(request, 'sign-up.html', context)
-
-

@@ -113,3 +113,10 @@ post_delete.connect(Likes.user_unliked_post, sender=Likes)
 
 post_save.connect(Follow.user_follow, sender=Follow)
 post_delete.connect(Follow.user_unfollow, sender=Follow)
+
+class About(models.Model):
+    content = models.TextField(blank=True, max_length=1000000000)
+
+    def __str__(self):
+        return self.content
+
